@@ -49,7 +49,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("verify the pop-up")
 	public void verify_the_pop_up() throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
 		System.out.println("pop-up is displayed  " + pop_up_Value);
 		assertTrue(pop_up_Value == false);
