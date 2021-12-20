@@ -49,6 +49,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("verify the pop-up")
 	public void verify_the_pop_up() throws Throwable {
+		Thread.sleep(2000);
 		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
 		System.out.println("pop-up is displayed  " + pop_up_Value);
 		assertTrue(pop_up_Value == false);
@@ -105,6 +106,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("verify the Pop-up")
 	public void verify_the_Pop_up() throws Throwable {
+		Thread.sleep(2000);
 		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
 		System.out.println("pop-up is displayed  " + pop_up_Value);
 		assertTrue(pop_up_Value == false);
