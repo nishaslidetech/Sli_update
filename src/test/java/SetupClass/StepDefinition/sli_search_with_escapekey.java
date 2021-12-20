@@ -20,7 +20,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 		Thread.sleep(2000);
 		driver.get(AppURL);
 		driver.manage().deleteAllCookies();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.navigate().refresh();
 		Thread.sleep(2000);
 	}
@@ -98,7 +98,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 			robot.keyPress(KeyEvent.VK_ESCAPE);
 			Thread.sleep(1000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (Exception e) {
 		}
 
@@ -106,7 +106,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("verify the Pop-up")
 	public void verify_the_Pop_up() throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
 		System.out.println("pop-up is displayed  " + pop_up_Value);
 		assertTrue(pop_up_Value == false);
