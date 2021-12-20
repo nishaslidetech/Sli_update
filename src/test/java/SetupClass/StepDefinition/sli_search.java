@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.JavascriptExecutor;
-
+import org.junit.Assert;
 import SetupClass.SetUpClass;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -316,6 +316,23 @@ public class sli_search extends SetUpClass{
 		 System.out.println("Total Number of Products ----"+str);
 		Thread.sleep(3000);
 				driver.navigate().refresh(); Thread.sleep(3800);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']"))).clear();
+
+		Thread.sleep(3000);
+
+		WebElement sign_Out = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign Out']")));
+		js.executeScript("arguments[0].click();", sign_Out);
+		//sign_Out.click();
+
+		String verification_Message = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[@class='base']")))
+				.getText();
+
+		System.out.println("verification_Message = " + verification_Message);
+		Assert.assertTrue("user is not sign out from apploication",
+				verification_Message.contains("YOU ARE NOW LOGGED OUT"));
 		
 	}
 		  
