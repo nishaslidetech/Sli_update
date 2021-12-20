@@ -319,7 +319,7 @@ public class sli_search extends SetUpClass{
 		Thread.sleep(3000);
 				driver.navigate().refresh(); Thread.sleep(3800);
 		
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']"))).clear();
+		/*wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']"))).clear();
 
 		Thread.sleep(3000);
 
@@ -334,7 +334,7 @@ public class sli_search extends SetUpClass{
 
 		System.out.println("verification_Message = " + verification_Message);
 		Assert.assertTrue("user is not sign out from apploication",
-				verification_Message.contains("YOU ARE NOW LOGGED OUT"));
+				verification_Message.contains("YOU ARE NOW LOGGED OUT"));*/
 		
 	}
 		  
