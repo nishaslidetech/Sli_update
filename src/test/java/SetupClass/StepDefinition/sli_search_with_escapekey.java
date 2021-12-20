@@ -40,7 +40,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 		try {
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_ESCAPE);
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
 			Thread.sleep(2000);
 		} catch (Exception e) {
@@ -96,7 +96,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 		try {
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_ESCAPE);
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
 			Thread.sleep(2000);
 		} catch (Exception e) {
