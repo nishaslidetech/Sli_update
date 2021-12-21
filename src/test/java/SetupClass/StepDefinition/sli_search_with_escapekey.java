@@ -66,7 +66,9 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("Click on Sign in button")
 	public void click_on_sign_in_button() throws Throwable {
-		//driver.navigate().refresh();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']"))).clear();
+		Thread.sleep(2000);
 		WebElement sign_In = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign In']")));
 		sign_In.click();
