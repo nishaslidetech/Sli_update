@@ -41,10 +41,10 @@ public class sli_search_with_escapekey extends SetUpClass {
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_ESCAPE);
 			System.out.println("key pressed");
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
 			System.out.println("key release");
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		} catch (Exception e) {
 		}
 	}
@@ -52,26 +52,26 @@ public class sli_search_with_escapekey extends SetUpClass {
 	@Then("verify the pop-up")
 	public void verify_the_pop_up() throws Throwable {
 		Thread.sleep(1000);
+		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
+		System.out.println("pop-up is displayed  " + pop_up_Value);
+		assertTrue(pop_up_Value == false);
 		
 		boolean img_value = driver.findElement(By.xpath("//div[@class='banner-slides-img']//img[@alt='Banner']"))
 				.isDisplayed();
 		System.out.println("images are displayed=  " + img_value);
 		assertTrue(img_value == true);
 		Thread.sleep(2000);
-		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
-		System.out.println("pop-up is displayed  " + pop_up_Value);
-		assertTrue(pop_up_Value == false);
+		
 
 	}
 
 	@Then("Click on Sign in button")
 	public void click_on_sign_in_button() throws Throwable {
 		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']"))).clear();
-		Thread.sleep(2000);
 		WebElement sign_In = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign In']")));
-		sign_In.click();
+		//sign_In.click();
+		js.executeScript("arguments[0].click();", sign_In); 
 		Thread.sleep(4000);
 	}
 
@@ -105,7 +105,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 			Thread.sleep(1000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
 			System.out.println("key released");
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		} catch (Exception e) {
 		}
 
@@ -113,7 +113,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("verify the Pop-up")
 	public void verify_the_Pop_up() throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		//boolean pop_up_Value = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@id='sli_autocomplete']"))).isDisplayed();
 		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
 		System.out.println("pop-up is displayed  " + pop_up_Value);
