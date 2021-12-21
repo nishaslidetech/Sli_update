@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 //import gherkin.formatter.MonochromeFormats;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"."},//tags= {"@Sli_test"},
+@CucumberOptions(features = {"."},tags= {"@Sli_test"},
 plugin= {"pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json","usage:target/usage.jsonx","junit:target/cucumber.xml"}
 )
 
