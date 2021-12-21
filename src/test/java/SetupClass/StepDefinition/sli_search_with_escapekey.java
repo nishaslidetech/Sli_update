@@ -31,7 +31,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 		WebElement search_field = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 		search_field.sendKeys("HR");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
 
 	@Then("press escape key")
@@ -40,8 +40,10 @@ public class sli_search_with_escapekey extends SetUpClass {
 		try {
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_ESCAPE);
+			System.out.println("key pressed");
 			Thread.sleep(1000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
+			System.out.println("key release");
 			Thread.sleep(2000);
 		} catch (Exception e) {
 		}
@@ -50,14 +52,15 @@ public class sli_search_with_escapekey extends SetUpClass {
 	@Then("verify the pop-up")
 	public void verify_the_pop_up() throws Throwable {
 		Thread.sleep(4000);
-		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
-		System.out.println("pop-up is displayed  " + pop_up_Value);
-		assertTrue(pop_up_Value == false);
+		;
 		boolean img_value = driver.findElement(By.xpath("//div[@class='banner-slides-img']//img[@alt='Banner']"))
 				.isDisplayed();
 		System.out.println("images are displayed=  " + img_value);
 		assertTrue(img_value == true);
 		Thread.sleep(2000);
+		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
+		System.out.println("pop-up is displayed  " + pop_up_Value);
+		assertTrue(pop_up_Value == false)
 
 	}
 
