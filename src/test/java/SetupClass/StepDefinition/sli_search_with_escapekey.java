@@ -31,7 +31,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 		WebElement search_field = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 		search_field.sendKeys("HR");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 	}
 
 	@Then("press escape key")
@@ -41,17 +41,17 @@ public class sli_search_with_escapekey extends SetUpClass {
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_ESCAPE);
 			System.out.println("key pressed");
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			robot.keyRelease(KeyEvent.VK_ESCAPE);
 			System.out.println("key release");
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (Exception e) {
 		}
 	}
 
 	@Then("verify the pop-up")
 	public void verify_the_pop_up() throws Throwable {
-		Thread.sleep(4000);
+		Thread.sleep(1000);
 		
 		boolean img_value = driver.findElement(By.xpath("//div[@class='banner-slides-img']//img[@alt='Banner']"))
 				.isDisplayed();
@@ -66,7 +66,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("Click on Sign in button")
 	public void click_on_sign_in_button() throws Throwable {
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
 		WebElement sign_In = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign In']")));
 		sign_In.click();
