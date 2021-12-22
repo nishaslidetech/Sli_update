@@ -22,7 +22,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 		driver.manage().deleteAllCookies();
 		Thread.sleep(3000);
 		driver.navigate().refresh();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	 @Then("Enter data in search filed")
