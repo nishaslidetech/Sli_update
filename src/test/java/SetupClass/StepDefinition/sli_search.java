@@ -260,10 +260,10 @@ public class sli_search extends SetUpClass{
 		  System.out.println("classname  of parent is ----------------------->"+parent_productn);
 		   
 		Thread.sleep(4000);
-		  WebElement View_More = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#sli_autocomplete > div > div.sli_ac_products > div > div.sli_view_more_link_wrapper > a"))); 
+		 /* WebElement View_More = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#sli_autocomplete > div > div.sli_ac_products > div > div.sli_view_more_link_wrapper > a"))); 
 			Thread.sleep(3000);
 			View_More.click();
-			Thread.sleep(5000);
+			Thread.sleep(5000);*/
 			
 			Thread.sleep(3000);
 		
