@@ -101,7 +101,7 @@ public class sli_search extends SetUpClass {
 
 			} else {
 				System.out.println("Element is Not Visible"); //
-				js.executeScript("alert('Product Suggestion Box did not appeared after Keyword Removal');");
+				//js.executeScript("alert('Product Suggestion Box did not appeared after Keyword Removal');");
 			}
 			driver.navigate().refresh();
 			Thread.sleep(3800);
