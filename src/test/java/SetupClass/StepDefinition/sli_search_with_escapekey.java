@@ -26,8 +26,8 @@ public class sli_search_with_escapekey extends SetUpClass {
 		Thread.sleep(5000);
 	}
 
-	 @Then("Enter data in search filed")
-         public void enter_data_in_search_filed() throws Throwable {
+	@Then("Enter data in search filed")
+	public void enter_data_in_search_filed() throws Throwable {
 
 		WebElement search_field = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
@@ -55,14 +55,13 @@ public class sli_search_with_escapekey extends SetUpClass {
 		Thread.sleep(1000);
 		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
 		System.out.println("pop-up is displayed  " + pop_up_Value);
-		//assertTrue(pop_up_Value == false);
-		
+		// assertTrue(pop_up_Value == false);
+
 		boolean img_value = driver.findElement(By.xpath("//div[@class='banner-slides-img']//img[@alt='Banner']"))
 				.isDisplayed();
 		System.out.println("images are displayed=  " + img_value);
 		assertTrue(img_value == true);
 		Thread.sleep(2000);
-		
 
 	}
 
@@ -71,8 +70,8 @@ public class sli_search_with_escapekey extends SetUpClass {
 		Thread.sleep(2000);
 		WebElement sign_In = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign In']")));
-		//sign_In.click();
-		js.executeScript("arguments[0].click();", sign_In); 
+		// sign_In.click();
+		js.executeScript("arguments[0].click();", sign_In);
 		Thread.sleep(4000);
 	}
 
@@ -89,7 +88,7 @@ public class sli_search_with_escapekey extends SetUpClass {
 	}
 
 	@Then("Enter Data in Search filed")
-        public void Enter_Data_in_Search_filed() throws Throwable {
+	public void Enter_Data_in_Search_filed() throws Throwable {
 
 		WebElement search_field = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
@@ -114,29 +113,30 @@ public class sli_search_with_escapekey extends SetUpClass {
 
 	@Then("verify the Pop-up")
 	public void verify_the_Pop_up() throws Throwable {
-		/*Thread.sleep(1000);
-		//boolean pop_up_Value = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@id='sli_autocomplete']"))).isDisplayed();
-		boolean pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
-		System.out.println("pop-up is displayed  " + pop_up_Value);
-		//assertTrue(pop_up_Value == false);
-		// clear the search field
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']"))).clear();
-
-		Thread.sleep(3000);
-
-		WebElement sign_Out = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign Out']")));
-		js.executeScript("arguments[0].click();", sign_Out);
-		//sign_Out.click();
-
-		String verification_Message = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[@class='base']")))
-				.getText();
-
-		System.out.println("verification_Message = " + verification_Message);
-		Assert.assertTrue("user is not sign out from apploication",
-				verification_Message.contains("YOU ARE NOW LOGGED OUT"));*/
+		/*
+		 * Thread.sleep(1000); //boolean pop_up_Value =
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+		 * "//ul[@id='sli_autocomplete']"))).isDisplayed(); boolean pop_up_Value =
+		 * driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).isDisplayed();
+		 * System.out.println("pop-up is displayed  " + pop_up_Value);
+		 * //assertTrue(pop_up_Value == false); // clear the search field
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+		 * "//input[@id='search']"))).clear();
+		 * 
+		 * Thread.sleep(3000);
+		 * 
+		 * WebElement sign_Out = wait .until(ExpectedConditions.elementToBeClickable(By.
+		 * xpath("//a[normalize-space()='Sign Out']")));
+		 * js.executeScript("arguments[0].click();", sign_Out); //sign_Out.click();
+		 * 
+		 * String verification_Message = wait
+		 * .until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[@class='base']"
+		 * ))) .getText();
+		 * 
+		 * System.out.println("verification_Message = " + verification_Message);
+		 * Assert.assertTrue("user is not sign out from apploication",
+		 * verification_Message.contains("YOU ARE NOW LOGGED OUT"));
+		 */
 	}
 
 }
-

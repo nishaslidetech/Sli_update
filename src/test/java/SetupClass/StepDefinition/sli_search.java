@@ -100,7 +100,7 @@ public class sli_search extends SetUpClass {
 				throw new IOException("Element Should not be visible");
 
 			} else {
-				System.out.println("Element is Not Visible"); // 
+				System.out.println("Element is Not Visible"); //
 				js.executeScript("alert('Product Suggestion Box did not appeared after Keyword Removal');");
 			}
 			driver.navigate().refresh();
@@ -279,6 +279,7 @@ public class sli_search extends SetUpClass {
 
 		WebElement Sort = driver.findElement(By.cssSelector("#dk0-combobox"));
 		js.executeScript("arguments[0].scrollIntoView();", Sort);
+
 		Thread.sleep(3000);
 		Sort.click();
 
