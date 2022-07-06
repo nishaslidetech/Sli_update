@@ -2,15 +2,16 @@ package SetupClass.StepDefinition;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
+
 import SetupClass.SetUpClass;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class sli_search_with_escapekey extends SetUpClass {
 	@Given("user is on Home Page")

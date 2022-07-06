@@ -83,7 +83,7 @@ public class SetUpClass {
 	@AfterClass
 	public static void after_Class() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.quit();  //->> don't want to close the browser for now
+		//driver.quit();  //->> don't want to close the browser for now
 		Thread.sleep(2000);
 	
 	}
