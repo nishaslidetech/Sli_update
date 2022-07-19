@@ -17,17 +17,9 @@ import io.cucumber.java.en.Then;
 
 public class sli_search extends SetUpClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 50);
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-
 	@Given("^Open the website URL\\.$")
 	public void open_the_website_URL() throws Throwable {
 		driver.get(AppURL);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		log.info("It's opening the website URL");
-		Thread.sleep(1000);
-
-		driver.get("https://www.slideteam.net");
 
 		Thread.sleep(2000);
 		driver.manage().deleteAllCookies();
@@ -40,17 +32,29 @@ public class sli_search extends SetUpClass {
 			log.info("It's opening the website URL");
 		} catch (NoSuchElementException popup) {
 		}
-		WebElement old_paid_email = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[2]/form/fieldset/div[2]/div/input")));
-		old_paid_email.sendKeys("nishadhiman0027@gmail.com");
 
-		WebElement old_paid_pass = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[2]/form/fieldset/div[3]/div/input")));
-		old_paid_pass.sendKeys("Qwerty@1");
+		try {
+			WebElement email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
+			email.sendKeys("nishadhiman0027@gmail.com");
 
-		WebElement old_paid_login_btn = wait
-				.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.login > span:nth-child(1)")));
-		old_paid_login_btn.click();
+			WebElement password_field = wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("//fieldset[@class='fieldset login']//input[@id='pass']")));
+			password_field.sendKeys("Qwerty@1");
+			Thread.sleep(2000);
+
+			WebElement login_btn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Login']")));
+			login_btn.click();
+			Thread.sleep(2000);
+			if (!driver.findElements(By.xpath("//div[@id ='confirm_id']\")).")).isEmpty()) {
+				WebElement approve = wait
+						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='confirm-approve']")));
+				approve.click();
+			}
+			Thread.sleep(5000);
+		} catch (NoSuchElementException e) {
+
+		}
 
 	}
 
@@ -101,7 +105,8 @@ public class sli_search extends SetUpClass {
 
 			} else {
 				System.out.println("Element is Not Visible"); //
-				//js.executeScript("alert('Product Suggestion Box did not appeared after Keyword Removal');");
+				// js.executeScript("alert('Product Suggestion Box did not appeared after
+				// Keyword Removal');");
 			}
 			driver.navigate().refresh();
 			Thread.sleep(3800);
