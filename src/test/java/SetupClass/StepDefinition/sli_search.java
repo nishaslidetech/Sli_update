@@ -286,28 +286,34 @@ public class sli_search extends SetUpClass {
 		View_More.click();
 		Thread.sleep(5000);
 
-		dropdown = driver.findElement(By.xpath("//select[@data-type = 'custom-dropdown']"));
+		dropdown = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@data-type = 'custom-dropdown']")));
 		js.executeScript("arguments[0].scrollIntoView();", dropdown);
 		Thread.sleep(2000);
 		dropdown.click();
 
 		sortBy = new Select(dropdown);
 		sortBy.selectByVisibleText("Newest");
+		Thread.sleep(3000);
 
-		dropdown = driver.findElement(By.xpath("//select[@data-type = 'custom-dropdown']"));
+		dropdown = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@data-type = 'custom-dropdown']")));
 		js.executeScript("arguments[0].scrollIntoView();", dropdown);
 		dropdown.click();
 
 		sortBy = new Select(dropdown);
 		sortBy.selectByVisibleText("Most Downloaded");
+		Thread.sleep(3000);
 
-		dropdown = driver.findElement(By.xpath("//select[@data-type = 'custom-dropdown']"));
+		dropdown = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@data-type = 'custom-dropdown']")));
 		js.executeScript("arguments[0].scrollIntoView();", dropdown);
 		Thread.sleep(2000);
 		dropdown.click();
 
 		sortBy = new Select(dropdown);
 		sortBy.selectByVisibleText("Popularity");
+		Thread.sleep(3000);
 
 		WebElement Stage = wait.until(ExpectedConditions
 				.elementToBeClickable(By.cssSelector("#facet-stages > li:nth-child(2) > input[type=checkbox]")));
@@ -323,8 +329,8 @@ public class sli_search extends SetUpClass {
 		Category.click();
 		Thread.sleep(3000);
 
-		String str = driver.findElement(By.cssSelector(
-				"#sli_content_wrapper > div:nth-child(3) > div > div > div.toolbar-amount.sli_num_results > span.toolbar-number.sli_current_page_value"))
+		String str = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+				"#sli_content_wrapper > div:nth-child(3) > div > div > div.toolbar-amount.sli_num_results > span.toolbar-number.sli_current_page_value")))
 				.getText();
 		System.out.println("Total Number of Products ----" + str);
 		Thread.sleep(3000);
