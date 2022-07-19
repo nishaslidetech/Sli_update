@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import SetupClass.SetUpClass;
@@ -16,6 +17,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class sli_search extends SetUpClass {
+	Select sortBy;
+	WebElement dropdown;
 
 	@Given("^Open the website URL\\.$")
 	public void open_the_website_URL() throws Throwable {
@@ -276,43 +279,35 @@ public class sli_search extends SetUpClass {
 		System.out.println("classname  of parent is ----------------------->" + parent_productn);
 
 		Thread.sleep(4000);
+
 		WebElement View_More = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='sli_view_more_link']")));
 		Thread.sleep(3000);
 		View_More.click();
 		Thread.sleep(5000);
 
-		WebElement Sort = driver.findElement(By.cssSelector("#dk0-combobox"));
-		js.executeScript("arguments[0].scrollIntoView();", Sort);
+		dropdown = driver.findElement(By.xpath("//select[@data-type = 'custom-dropdown']"));
+		js.executeScript("arguments[0].scrollIntoView();", dropdown);
+		Thread.sleep(2000);
+		dropdown.click();
 
-		Thread.sleep(3000);
-		Sort.click();
+		sortBy = new Select(dropdown);
+		sortBy.selectByVisibleText("Newest");
 
-		WebElement Newest = driver.findElement(By.xpath("//div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]"));
-		Thread.sleep(3000);
-		Newest.click();
-		Thread.sleep(8000);
+		dropdown = driver.findElement(By.xpath("//select[@data-type = 'custom-dropdown']"));
+		js.executeScript("arguments[0].scrollIntoView();", dropdown);
+		dropdown.click();
 
-		WebElement Sort1 = driver.findElement(By.cssSelector("#dk0-combobox"));
-		js.executeScript("arguments[0].scrollIntoView();", Sort1);
-		Thread.sleep(3000);
-		Sort1.click();
+		sortBy = new Select(dropdown);
+		sortBy.selectByVisibleText("Most Downloaded");
 
-		WebElement Popularity = driver.findElement(By.xpath("//div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]"));
-		Thread.sleep(3000);
-		Popularity.click();
-		Thread.sleep(3000);
+		dropdown = driver.findElement(By.xpath("//select[@data-type = 'custom-dropdown']"));
+		js.executeScript("arguments[0].scrollIntoView();", dropdown);
+		Thread.sleep(2000);
+		dropdown.click();
 
-		WebElement Sort2 = driver.findElement(By.cssSelector("#dk0-combobox"));
-		js.executeScript("arguments[0].scrollIntoView();", Sort2);
-		Thread.sleep(3000);
-		Sort2.click();
-
-		WebElement Most_downloaded = driver
-				.findElement(By.xpath("//div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]"));
-		Thread.sleep(3000);
-		Most_downloaded.click();
-		Thread.sleep(3000);
+		sortBy = new Select(dropdown);
+		sortBy.selectByVisibleText("Popularity");
 
 		WebElement Stage = wait.until(ExpectedConditions
 				.elementToBeClickable(By.cssSelector("#facet-stages > li:nth-child(2) > input[type=checkbox]")));
